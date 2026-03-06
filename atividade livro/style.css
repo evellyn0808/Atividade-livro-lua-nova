@@ -1,0 +1,347 @@
+/* IMPORTANDO FONTES */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
+
+/* VARIÁVEIS DE CORES - TEMA LUA NOVA (AZUL E PRATA) */
+:root {
+    /* Azul Profundo (Noite) */
+    --cor-fundo-escuro: #050510;
+    --cor-azul-medio: #1a1a40;
+    --cor-azul-brilho: #4b6cb7;
+    
+    /* Prata/Lua (Bella e Edward) */
+    --cor-prata: #e0e0e0;
+    --cor-prata-brilho: #ffffff;
+    
+    /* Vermelho Desaturado (Para manter a identidade da saga, mas mais sombrio) */
+    --cor-vermelho: #660000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* FUNDO GERAL - TEMA NOITE */
+body {
+    /* Gradiente que simula o céu noturno e a lua */
+    background: 
+        radial-gradient(circle at 50% 0%, #1a2a6c 0%, #0d1b38 40%, #000000 100%),
+        linear-gradient(180deg, #000000, #050510, #000000);
+    
+    font-family: 'EB Garamond', serif;
+    color: var(--cor-prata);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* HEADER */
+header {
+    text-align: center;
+    padding: 50px 20px;
+    /* Fundo escuro com leve tom azulado */
+    background: linear-gradient(180deg, #0a0a1a, #000000);
+    border-bottom: 2px solid var(--cor-azul-brilho);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    position: relative;
+}
+
+
+header h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 65px;
+    letter-spacing: 6px;
+    color: var(--cor-prata-brilho);
+    /* Brilho prateado/azulado */
+    text-shadow:
+        0 0 10px var(--cor-azul-brilho),
+        0 0 20px var(--cor-azul-medio),
+        0 0 40px var(--cor-prata);
+    margin-top: 20px;
+}
+
+header p {
+    margin-top: 15px;
+    font-size: 18px;
+    color: var(--cor-prata);
+    font-style: italic;
+    letter-spacing: 1px;
+    text-shadow: 0 0 5px rgba(255,255,255,0.3);
+}
+
+/* MENU */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    flex-wrap: wrap;
+    background: rgba(5, 5, 16, 0.95); /* Fundo quase preto com tom azulado */
+    padding: 18px;
+    border-bottom: 1px solid var(--cor-azul-medio);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+}
+
+nav button {
+    background: none;
+    border: none;
+    font-family: 'Cinzel', serif;
+    font-size: 16px;
+    color: var(--cor-prata);
+    cursor: pointer;
+    position: relative;
+    transition: 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* LINHA ANIMADA DO MENU - AZUL */
+nav button::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0%;
+    height: 2px;
+    background: var(--cor-azul-brilho);
+    transition: 0.3s ease;
+    box-shadow: 0 0 10px var(--cor-azul-brilho);
+}
+
+nav button:hover::after,
+nav button.menuAtivo::after {
+    width: 100%;
+}
+
+nav button:hover,
+nav button.menuAtivo {
+    color: var(--cor-prata-brilho);
+    text-shadow: 0 0 5px var(--cor-azul-brilho);
+}
+
+/* CONTAINER */
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 60px 30px;
+}
+
+/* SEÇÕES */
+.section {
+    display: none;
+}
+
+.section.active {
+    display: block;
+    animation: fade 0.7s ease;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* CARDS - VIDRO AZULADO */
+.card {
+    background: rgba(10, 10, 26, 0.75); /* Fundo azulado escuro */
+    backdrop-filter: blur(10px);
+    padding: 45px;
+    border-radius: 16px;
+    border: 1px solid rgba(75, 108, 183, 0.3); /* Borda azulada sutil */
+    box-shadow:
+        0 0 30px rgba(0, 0, 0, 0.5),
+        0 0 60px rgba(0, 0, 0, 0.7);
+    transition: 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Detalhe decorativo no card - Azul */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--cor-azul-brilho), transparent);
+}
+
+/* HOVER CARD */
+.card:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow:
+        0 0 40px rgba(75, 108, 183, 0.3), /* Brilho azul */
+        0 0 80px rgba(0, 0, 0, 0.8);
+    border-color: rgba(75, 108, 183, 0.6);
+}
+
+/* TITULOS */
+h2 {
+    font-family: 'Cinzel', serif;
+    color: var(--cor-azul-brilho);
+    margin-bottom: 25px;
+    font-size: 28px;
+    border-bottom: 1px solid var(--cor-azul-medio);
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+/* TEXTO */
+p {
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #ccc;
+}
+
+/* CITAÇÕES */
+.quote {
+    font-family: 'Cinzel', serif;
+    font-style: italic;
+    color: var(--cor-prata);
+    border-left: 3px solid var(--cor-azul-brilho);
+    padding-left: 20px;
+    margin: 30px 0;
+    font-size: 1.2em;
+    background: rgba(75, 108, 183, 0.1);
+    padding: 15px;
+    border-radius: 0 10px 10px 0;
+}
+
+/* PERSONAGENS */
+.personagem {
+    margin-bottom: 25px;
+    padding: 20px;
+    border-left: 3px solid var(--cor-azul-brilho);
+    background: rgba(255, 255, 255, 0.02);
+    transition: 0.3s;
+    border-radius: 0 10px 10px 0;
+    display:flex;
+align-items:center;
+gap:25px;
+}
+
+.personagem:hover {
+    background: rgba(75, 108, 183, 0.15);
+    transform: translateX(10px);
+    border-left-color: var(--cor-prata-brilho);
+}
+
+.personagem h3 {
+    color: var(--cor-prata-brilho);
+    font-family: 'Cinzel', serif;
+    margin-bottom: 10px;
+    font-size: 22px;
+    max-width:700px;
+
+}
+.personagem img{
+width:180px;
+height:180px;
+object-fit:cover;
+border-radius:15px;
+}
+
+/* GALERIA */
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
+    margin-top: 20px;
+}
+
+.galeria img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.4s;
+    border: 1px solid var(--cor-azul-medio);
+}
+
+.galeria img:hover {
+    transform: scale(1.08);
+    box-shadow:
+        0 0 20px var(--cor-azul-brilho),
+        0 0 40px rgba(75, 108, 183, 0.4);
+}
+
+/* LIGHTBOX */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox.active {
+    display: flex;
+    opacity: 1;
+}
+
+.lightbox img {
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 10px;
+    box-shadow: 0 0 50px var(--cor-azul-brilho);
+    border: 2px solid var(--cor-prata);
+    animation: zoomIn 0.3s ease;
+}
+
+footer {
+    margin-top: 60px;
+    background: #000;
+    text-align: center;
+    padding: 25px;
+    color: #777;
+    border-top: 1px solid var(--cor-azul-medio);
+    font-size: 14px;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+    header h1 { font-size: 45px; }
+    nav { gap: 15px; }
+    nav button { font-size: 14px; }
+    .card { padding: 30px; }
+}
+
+header {
+    text-align: center;
+    padding: 80px 20px; 
+    /* Imagem de fundo com gradiente escuro para garantir leitura */
+    background: 
+        linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 100%),
+        url('');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Efeito Parallax */
+    border-bottom: 2px solid var(--cor-azul-brilho);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    position: relative;
+}
+
+.inicio-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
