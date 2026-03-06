@@ -1,7 +1,4 @@
-README — Projeto Web "Lua Nova"
-Descrição
-
-Este projeto consiste em um site temático inspirado na obra New Moon, parte da saga The Twilight Saga.
+Essa atividade consiste em um site temático inspirado na obra New Moon, parte da saga The Twilight Saga.
 A página apresenta informações sobre a história, personagens e elementos visuais relacionados ao universo da narrativa.
 
 O site foi desenvolvido utilizando HTML, CSS e JavaScript, com foco em criar uma experiência visual imersiva baseada em tons escuros e azulados que remetem à atmosfera noturna da história.
